@@ -33,9 +33,7 @@ form.addEventListener('submit', (e) => {
   };
 
   customerList.unshift(createList);
-  console.log(createId.value, JSON.stringify(createList));
   localStorage.setItem(`${createId.value}`, JSON.stringify(createList));
-  console.log(localStorage.length);
 
   name.value = '';
   createId.value = '';

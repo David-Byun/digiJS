@@ -9,8 +9,6 @@ $(form).on('submit', (e) => {
     $('#name').val() == ''
   ) {
     alert('모든 빈칸에 입력해주세요!');
-  } else {
-    console.log('저장 완료');
   }
 
   for (let i = 0; i < localStorage.length; i++) {
