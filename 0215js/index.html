@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <title>Document</title>
+    <style>
+      .red-color {
+        color: red;
+      }
+      .fs40 {
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>버튼</button>
+    <script>
+      // CommonJS
+      const Swal = require('sweetalert2');
+      const btn = document.querySelector('button');
+      btn.addEventListener('click', () => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Do you want to continue',
+          icon: 'error',
+          confirmButtonText: 'Cool',
+        });
+      });
+    </script>
+  </body>
+</html>

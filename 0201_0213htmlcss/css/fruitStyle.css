@@ -1,0 +1,57 @@
+body {
+  font-family: 'Helvetica Neue', 'Apple SD Gothic Neo', sans-serif;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-collapse: collapse;
+  height: 20px;
+}
+
+tr > th {
+  font-weight: 700;
+  background: rgb(255, 255, 153);
+  font-size: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li {
+  text-indent: -30px;
+  font-weight: bold;
+}
+
+ul > li:before {
+  content: '-';
+}
+
+th,
+td {
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid orange;
+  padding: 20px;
+  padding-top: 30px;
+  height: 20px;
+}
+
+tr:nth-child(2) {
+  background-color: rgb(255, 255, 153);
+}
+
+tr:nth-child(2n-1) {
+  background-color: rgb(255, 255, 224);
+}
+
+ul {
+  margin-top: 20px;
+}
+
+ul > li {
+  margin-top: 15px;
+  font-size: 20px;
+}

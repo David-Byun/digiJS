@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/0203KB.css" />
+    <title>미디어쿼리</title>
+    <style>
+      body {
+        background-color: black;
+        color: red;
+      }
+      h1::before {
+        content: '1. ';
+      }
+      h1::after {
+        content: ' - 기본';
+      }
+
+      @media (max-width: 1280px) {
+        body {
+          background-color: black;
+          color: blue;
+        }
+        h1::before {
+          content: '2. ';
+        }
+        h1::after {
+          content: ' - 1026 ~ 1280px';
+        }
+      }
+
+      @media (max-width: 1025px) {
+        body {
+          background-color: black;
+          color: white;
+        }
+        h1::before {
+          content: '3. ';
+        }
+        h1::after {
+          content: ' - 961 ~ 1025px';
+        }
+      }
+
+      @media (max-width: 960px) {
+        body {
+          background-color: black;
+          color: red;
+        }
+        h1::before {
+          content: '4. ';
+        }
+        h1::after {
+          content: ' - 769 ~ 960px';
+        }
+      }
+      @media (max-width: 768px) {
+        body {
+          background-color: black;
+          color: purple;
+        }
+        h1::before {
+          content: '5. ';
+        }
+        h1::after {
+          content: ' - 577 ~ 768px';
+        }
+      }
+
+      @media (max-width: 576x) {
+        body {
+          background-color: black;
+          color: white;
+        }
+        h1::before {
+          content: '6. ';
+        }
+        h1::after {
+          content: ' - 0 ~ 576px';
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>미디어쿼리</h1>
+    <p>
+      미디어 쿼리는 화면 크기에 따른 각각의 속성 값을 지정하며, 여러가지 화면을
+      구성하는 기술
+    </p>
+    <ul>
+      <li>::는 가상요소 지정 시 사용</li>
+      <ul>
+        <li>::before는 요소 앞에 작성할 때 사용</li>
+        <li>::after는 요소 뒤에 작성할 때 사용</li>
+      </ul>
+      <li>@media : 미디어쿼리의 시작 표시</li>
+      <ul>
+        <li>조건문 : 해당 조건을 설정</li>
+        <li>실행문 : 조건에 따른 실행을 설정</li>
+      </ul>
+    </ul>
+  </body>
+</html>

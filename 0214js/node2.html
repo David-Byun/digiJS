@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelector</title>
+  </head>
+  <body>
+    <div class="box-1">
+      <p class="text">text-1</p>
+      <p class="text">text-2</p>
+    </div>
+
+    <div class="box-2">
+      <p class="text">text-3</p>
+      <p class="text">text-4</p>
+    </div>
+  </body>
+  <script>
+    const el = document.getElementById('title');
+    console.log(el);
+    const classEl = document.getElementsByClassName('text');
+    console.log(classEl);
+    for (let a of classEl) {
+      console.log(a);
+    }
+
+    const tagEls = document.getElementsByTagName('p');
+    console.log(tagEls);
+    for (let b of tagEls) {
+      console.log(b);
+    }
+  </script>
+</html>

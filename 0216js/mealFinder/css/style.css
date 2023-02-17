@@ -1,0 +1,33 @@
+@import url('/css/common.css'); /* url 형식 */
+
+html,
+body {
+  background-color: #64a576;
+  height: 80%;
+}
+
+div {
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 300px;
+  height: 30%;
+  background-color: #eeeff1;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+.in {
+  margin-bottom: 10px;
+}
+
+#meals {
+  display: grid;
+}
+
+h5 {
+  color: white;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}

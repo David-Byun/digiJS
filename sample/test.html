@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>난수를 발생시켜 맞추는 게임</title>
+  </head>
+  <body>
+    <h1>축하축하 정답!</h1>
+    <script>
+      alert('난수를 발생시켜서 번호 맞추는 게임');
+      let low = Number(window.prompt('최소 값을 입력하시오'));
+      let high = Number(window.prompt('최대 값을 입력하시오'));
+      let count = 0;
+      while (true) {
+        let value = Number(window.prompt('행운의 번호를 고르세요.'));
+        if (value > high || value < low) {
+          alert(`${low}~${high}범위까지 입력해주세요`);
+        } else {
+          let number = Math.floor(Math.random() * (high + low)) + low;
+          if (value !== number) {
+            count++;
+            alert(`${count} 번째 시도 실패`);
+          } else {
+            alert('정답입니다!');
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
