@@ -1,0 +1,82 @@
+@import url('/css/common.css'); /* url 형식 */
+
+html,
+body {
+  background-color: #64a576;
+  height: 100%;
+}
+
+nav {
+  position: fixed;
+  margin-top: 1%;
+  top: 0;
+  right: 6%;
+  font-weight: 600;
+  color: white;
+  text-align: right;
+}
+
+.search-form {
+  margin: 0 auto;
+  margin-top: 2%;
+  width: 300px;
+  height: 10%;
+  background-color: #eeeff1;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+.in {
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.meals {
+  padding: 0 5%;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+#detail {
+  text-align: center;
+}
+
+iframe {
+  margin-top: 20px;
+}
+
+h4 {
+  color: white;
+}
+
+#span {
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0;
+}
+
+.description {
+  color: white;
+  margin-top: 3%;
+  padding: 2% 25%;
+  font-size: 18px;
+  border-top: 1px solid white;
+}
+
+i {
+  position: fixed;
+  margin-top: 1%;
+  top: 0;
+  left: 6%;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+}
