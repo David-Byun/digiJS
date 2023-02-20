@@ -8,5 +8,20 @@ $(function () {
 });
 
 $('.btn').on('click', () => {
-  $('html').css('background-color', 'black');
+  $('.number li:nth-last-child(1)').css('background-color', 'blue');
+  $('ul').toggle();
+  $('.btn').html(`<span>${new Date()}</span>`);
+});
+
+$('btn').on({
+  'mouseover focus': () => {
+    $('.name').next().css({
+      color: '#050',
+    });
+  },
+  'mouseout blur': () => {
+    $('.title').css({
+      background: '#ff2',
+    });
+  },
 });

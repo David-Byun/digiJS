@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      body {
+        height: 100000px;
+        width: 200%;
+      }
+      #wrap {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('.btn1').click(function () {
+          // 단독 이벤트 등록
+          $('.btn1').parent().next().css({ color: '#f00' });
+        });
+        $('.btn2').on({
+          //.on 메서도를 이용한 그룹 이벤트 등록
+          'mouseover focus': () => {
+            $('.btn2').parent().next().css({
+              color: '#0f0',
+            });
+          },
+          'mouseout blur': () => {
+            $('.btn2').parent().next().css({
+              color: '#000',
+            });
+          },
+        });
+        $('.btn1').off('click');
+        $('.btn2').off('mouseover focus');
+      });
+      $(function () {
+        $(document).ready(function () {
+          let h1 = $('.img1').height();
+          console.log('ready :', h1);
+        });
+        $(window).load(function () {
+          let h2 = $('.img2').height();
+          console.log('load :', h2);
+        });
+      });
+      $(function () {
+        $('.btn1').on('click', function (e) {
+          console.log(e);
+          e.preventDefault();
+          $('.txt1').css({ 'background-color': '#ff0' });
+        });
+        $('.btn2').on('click', function (e) {
+          e.preventDefault();
+          $('.txt2').css({ 'background-color': '#0ff' });
+        });
+        $('.btn3').on('dblclick', function (e) {
+          e.preventDefault();
+          $('.txt3').css({ 'background-color': '#0f0' });
+        });
+      });
+      $(function () {
+        $('.btn1').on({
+          mouseover: () => {
+            $('.txt1').css({ 'background-color': 'yellow' });
+          },
+          mouseout: () => {
+            $('.txt1').css({ 'background-color': 'none' });
+          },
+        });
+        $('.btn2').hover(
+          () => {
+            $('.txt2').css({ 'background-color': 'aquas' });
+          },
+          function () {
+            $('.txt2').css({ 'background-color': 'none' });
+          }
+        );
+      });
+      $(function () {
+        $(document).on('mouseover', function (e) {
+          $('.posX').text(e.pageX);
+          $('.posY').text(e.pageY);
+        });
+      });
+      $(function () {
+        $(window).on('scroll', function () {
+          let sc_top = $(this).scrollTop();
+          let sc_left = $(this).scrollLeft();
+          $('.top').text(sc_top);
+          $('.left').text(sc_left);
+        });
+      });
+      $(function () {
+        $('#user_id_1, #user_pw_1').on('focus', function () {
+          $(this).css({ 'background-color': 'pink' });
+        });
+        $('#user_id_1, #user_pw_1').on('blur', function () {
+          $(this).css({ 'background-color': 'red' });
+        });
+        $('#frm_2').on('focusin', function () {
+          $(this).css({ 'background-color': 'pink' });
+        });
+
+        $('#frm_2').on('focusout', function () {
+          $(this).css({ 'background-color': 'blue' });
+        });
+      });
+      $(function () {
+        $('#btn1').data({ text: 'javascript' }).on({
+          mouseover: over, //
+          mouseout: out,
+        });
+        $('#btn2').data({ text: 'welcome!' }).on({
+          'mouseover focus': over,
+          'mouseout blur': out,
+        });
+        function over() {
+          $('.txt').text($(this).data('text'));
+        }
+        function out() {
+          $('.txt').text('');
+        }
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>focus / focus blur</h1>
+    <form action="#">
+      <p>
+        <label for="user_id_1">User ID</label>
+        <input type="text" id="user_id_1" name="user_id_1" />
+      </p>
+      <p>
+        <label for="user_pw_1">User Password</label>
+        <input type="text" id="user_pw_1" name="user_pw_1" />
+      </p>
+    </form>
+    <h1>focus in / focus out</h1>
+    <form action="#" id="frm_2">
+      <p>
+        <label for="user_id_1">User ID</label>
+        <input type="text" id="user_id_1" name="user_id_1" />
+      </p>
+      <p>
+        <label for="user_pw_1">User Password</label>
+        <input type="text" id="user_pw_1" name="user_pw_1" />
+      </p>
+    </form>
+    <div id="wrap">
+      <p>scrollTop: <span class="top">0</span>px</p>
+      <p>scrollLeft: <span class="left">0</span>px</p>
+    </div>
+    <h1>mouseover</h1>
+    <p>X : <span class="posX">0</span></p>
+    <p>Y : <span class="posY">0</span></p>
+    <p a href="https://www.naver.com" class="btn1">버튼1</p>
+    <p a href="https://www.naver.com" class="btn2">버튼2</p>
+    <p a href="https://www.naver.com" class="btn3">버튼3</p>
+    <div class="txt1">오오오오오</div>
+    <div class="txt2">오오오오오</div>
+    <div class="txt3">오오오오오</div>
+
+    <p>
+      <img src="https://place-hold.it/300x300" class="img1" />
+    </p>
+    <p>
+      <button class="btn1">버튼1</button>
+    </p>
+    <p>내용1</p>
+    <p>
+      <button class="btn2">버튼2</button>
+    </p>
+    <p>내용2</p>
+  </body>
+</html>

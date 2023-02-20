@@ -1,34 +1,38 @@
 * {
-    margin : 0;
-    padding : 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  flex-shrink: 0;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    color : inherit;
-    text-decoration : none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .card {
-    margin : 50px;
-    padding : 50px;
+  margin: 50px;
+  padding: 50px;
 }
 
 .card-header {
-    padding-bottom : 40px;
+  padding-bottom: 40px;
 }
 
-.btn{
-    margin-top : 20px;
-    text-align : right;
+.btn {
+  margin-top: 20px;
+  text-align: right;
 }
 
-.btn a{
-    border : 1px solid #999;
-    padding : 5px;
-    background-color : #e6e6e6;
-    border-radius : 10%;
+.btn a {
+  border: 1px solid #999;
+  padding: 5px;
+  background-color: #e6e6e6;
+  border-radius: 10%;
 }
