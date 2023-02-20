@@ -7,6 +7,17 @@
   flex-shrink: 0;
 }
 
+html,
+body {
+  height: 200%;
+}
+
+.page {
+  display: fixed;
+  top: 300;
+  left: 300;
+}
+
 li {
   list-style: none;
 }
