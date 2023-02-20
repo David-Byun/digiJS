@@ -15,11 +15,6 @@
         height: 100000px;
         width: 200%;
       }
-      #wrap {
-        position: fixed;
-        left: 10px;
-        top: 10px;
-      }
     </style>
     <script>
       $(function () {
@@ -131,10 +126,95 @@
           $('.txt').text('');
         }
       });
+      $(function () {
+        $(document).on('keydown', keyEventFnc);
+        function keyEventFnc(e) {
+          let direct = '';
+          switch (e.keyCode) {
+            case 37:
+              direct = 'LEFT';
+              break;
+            case 38:
+              direct = 'TOP';
+              break;
+            case 39:
+              direct = 'RIGHT';
+              break;
+            case 40:
+              direct = 'BOTTOM';
+              break;
+          }
+          if (direct) $('#user_id').val(direct);
+        }
+      });
+      $(function () {
+        $('.menuWrap_1 a').on('click', function (e) {
+          e.preventDefault();
+          $('.menuWrap_1 a').css({ 'background-color': '#fff' });
+          $(this).css({ 'background-color': '#ff0' });
+        });
+      });
+      $(function () {
+        $('.menuWrap_2 a').on('click', function (e) {
+          e.preventDefault();
+          $('.menuWrap_2 a').css({ 'background-color': '#fff' });
+
+          let idx = $('.menuWrap_2 a').index(this);
+          $('menuWrap_2 a').eq(idx).css({ 'background-color': '#00f' });
+
+          $('.idxNum').text(idx);
+        });
+      });
+      $(function () {
+        $('.btn_wrap').delegate('.btn_1 .on', 'mouseover focus', function () {
+          alert('Hello!');
+        });
+        $('.btn_1').addClass('on'); // .btn_1 .on
+        $(document).one('mouseover focus', '.btn_2.on', function () {
+          alert('WELCOME!');
+        });
+        $('.btn_2').addClass('on');
+      });
+      $(function () {
+        $('.btn_1').on('mouseover', function () {
+          alert('WELCOME!'); //버튼 생성한 곳에 등록
+          let btn_2 = $('<p><button class="btn_2">버튼2</button></p>');
+          $('#wrap').append(btn_2); //버튼 생성
+          $('.del_1').on('click', function () {
+            $('.btn_1').off('mouseover');
+          });
+          $('.del_2').on('click', function () {
+            $(document).off('mouseover', '.btn_2');
+          });
+        });
+      });
     </script>
     <title>Document</title>
   </head>
   <body>
+    <div id="wrap">
+      <p class="btn_wrap">
+        <button class="btn_1" id="btn_1">버튼1</button>
+        <button class="btn_2" id="btn_2">버튼1</button>
+      </p>
+    </div>
+    <p>
+      <button class="del_1">버튼1 이벤트 해지</button>
+    </p>
+    <h2>$this</h2>
+    <ul class="menuWrap_1_a">
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+    </ul>
+    <h2>Index()</h2>
+    <ul class="menuWrap_2_a">
+      <li><a href="#">메뉴4</a></li>
+      <li><a href="#">메뉴5</a></li>
+      <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="" idxNum></p>
+    <!--     <p><input type="text" name="user_id" id="user_id" /></p>
     <h1>focus / focus blur</h1>
     <form action="#">
       <p>
@@ -181,6 +261,6 @@
     <p>
       <button class="btn2">버튼2</button>
     </p>
-    <p>내용2</p>
+    <p>내용2</p> -->
   </body>
 </html>
