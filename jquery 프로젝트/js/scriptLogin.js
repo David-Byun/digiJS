@@ -1,12 +1,12 @@
 $('#loginForm').on('submit', (e) => {
   e.preventDefault();
 
-  if ($('#loginId').val() == '' || $('#loginPwd').val() == '') {
+  if ($('#loginId').val() === '' || $('#loginPwd').val() === '') {
     alert('아이디 혹은 비밀번호를 입력해주세요');
   } else {
     if (
-      localStorage.getItem(`${$('#loginId').val()}`) == '' ||
-      localStorage.getItem(`${$('#loginId').val()}`) == null
+      localStorage.getItem(`${$('#loginId').val()}`) === '' ||
+      localStorage.getItem(`${$('#loginId').val()}`) === null
     ) {
       alert('회원가입이 필요해요!');
     } else {

@@ -19,10 +19,12 @@ function searchMeal(e) {
 }
 
 // 검색시 api 실행
-const callAPI = async (meal) => {
-  await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${meal}`)
-    .then((res) => res.json())
-    .then((data) => {
+const callAPI = (meal) => {
+  $.ajax({
+    url: `https://www.themealdb.com/api/json/v1/1/filter.php?c=${meal}`,
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
       if (data.meals != null) {
         let countMeals = data.meals.length;
         $('h1').text(`${countMeals}개의 음식을 찾았어요!`);
@@ -48,7 +50,8 @@ const callAPI = async (meal) => {
         $('.btn').val('검색');
         alert('입력한 카테고리는 올바르지 않습니다.');
       }
-    });
+    },
+  });
 };
 
 // 로드시 api 실행
@@ -56,11 +59,11 @@ function callCategories() {
   $('h1').text('음식 카테고리를 검색해주세요');
   $('span').text('');
   $('#meals').html('');
-  fetch('https://www.themealdb.com/api/json/v1/1/categories.php', {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((data) => {
+  $.ajax({
+    url: 'https://www.themealdb.com/api/json/v1/1/categories.php',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
       $('#meals').html(
         data.categories
           .map(
@@ -69,5 +72,6 @@ function callCategories() {
           )
           .join('')
       );
-    });
+    },
+  });
 }

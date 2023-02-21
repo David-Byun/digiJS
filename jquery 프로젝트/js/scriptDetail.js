@@ -4,15 +4,11 @@ $('.far').on('click', () => {
   location.href = 'index.html';
 });
 $(function () {
-  callDetails();
-});
-
-function callDetails() {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`, {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((data) => {
+  $.ajax({
+    url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
       $('#detail').html(`
         <h1 class="title">
             ${data.meals[0].strMeal}
@@ -28,5 +24,9 @@ function callDetails() {
         ${data.meals[0].strInstructions}
         </div>
       `);
-    });
-}
+    },
+    error: function (err) {
+      alert('데이터를 불러오지 못했어요');
+    },
+  });
+});
